@@ -4,6 +4,8 @@ var Twitter = require('twitter');
 
 var request = require('request');
 
+var spotify = require('spotify');
+
 var consumer_key = keys.twitterKeys.consumer_key;
 
 var consumer_secret = keys.twitterKeys.consumer_secret;
@@ -79,7 +81,6 @@ if(process.argv[2] == 'movie-this'){
 
 		}
 
-
 	}
 
 	request('http://www.omdbapi.com/?t=' + processValue + '&y=&plot=short&r=json', function (error, response, body) {
@@ -107,5 +108,50 @@ if(process.argv[2] == 'movie-this'){
 		}
 
 	});
+
+}
+
+if (process.argv[2] == 'spotify-this-song') {
+
+	if(processValue == undefined || processValue == null){
+
+		processValue = '"The Sign" by Ace of Base';
+
+	} 
+	else {
+
+		for(var i = 3; i < process.argv.length; i++){
+
+			if(i == 3){
+
+				processValue = process.argv[i].replace(' ', '+');
+
+				console.log(processValue);
+
+			} else{
+
+				processValue = processValue + "+" + process.argv[i];
+
+			}
+
+		}
+
+	}
+
+	spotify.search({ type: 'track', query: processValue }, function(err, data) {
+
+	    if ( err ) {
+
+	        console.log('Error occurred: ' + err);
+
+	        return;
+
+	    }
+
+	    console.log(data);
+
+	});
+
+
 
 }
