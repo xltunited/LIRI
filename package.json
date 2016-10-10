@@ -1,0 +1,24 @@
+{
+  "name": "liri",
+  "version": "1.0.0",
+  "description": "Takes written commands",
+  "main": "keys.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xltunited/LIRI.git"
+  },
+  "author": "Eddy Leon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xltunited/LIRI/issues"
+  },
+  "homepage": "https://github.com/xltunited/LIRI#readme",
+  "dependencies": {
+    "request": "^2.75.0",
+    "spotify": "^0.3.0",
+    "twitter": "^1.4.0"
+  }
+}
